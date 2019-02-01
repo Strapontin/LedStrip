@@ -1,0 +1,53 @@
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans); */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #444044;
+}
+
+#color-input {
+  display: none;
+}
+
+#color-label {
+  margin-left: 1px;
+  margin-top: 2px;
+  position: absolute;
+  height: 500px;
+  width: 67px;
+} 
+
+#color-input:checked ~ #color-picker {
+  opacity: 1;
+}
+
+#color-picker {
+  position: absolute;
+  /* margin-left: 70px;  */
+  background-color: white;
+  border: solid 1px #ccc;
+  /* opacity: 0; */
+  padding: 5px;
+}
+
+#colors-container {
+	margin: 10px;
+}
+
+#rgb-textboxes{
+	display: flex;
+	flex-direction: column;
+	margin-left: 700px;	
+}
+
+#rgb-textboxes label {
+	color: white;
+	margin-left: 30px;
+}
+
+
+.rgb-value{
+	width: 60px;
+	padding: 5px;
+	margin: 10px;
+}
