@@ -80,4 +80,15 @@ $(document).ready(function() {
 		
 		$("#value-luminosity").val($("#luminosity").get(0).value);
 	});
+	
+	function refreshTimerForLeds(){
+		
+		
+	}
+	
+	// Lors du clique sur le bouton pour éteindre la bande
+	$(".switch.bande-power").on("click", function() {
+		
+		console.log($(".switch.bande-power")[0].control.checked);
+	});
 });

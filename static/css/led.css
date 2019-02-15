@@ -62,6 +62,20 @@ input[type=range][orient=vertical]
 	height: 50px;
 }
 
+/* Partie actions */
+.actions-container {
+	margin-left: 1%;
+	margin-top: 1%;
+	border: 1px solid grey;
+	height: 495px;
+	width: 315px;
+}
+
+.bande-power {
+	top: 125px;;
+	align-self: center;
+}
+
 
 /* Couleur des labels */
 #label-red{
