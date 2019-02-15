@@ -5,29 +5,19 @@ body {
   background-color: #444044;
 }
 
-#color-input {
-  display: none;
-}
-
-#color-label {
-  margin-left: 1px;
-  margin-top: 2px;
-  position: absolute;
-  height: 500px;
-  width: 67px;
-} 
-
-#color-input:checked ~ #color-picker {
-  opacity: 1;
+input[type=range][orient=vertical]
+{
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
 }
 
 #color-picker {
   position: absolute;
-  /* margin-left: 70px;  */
   background-color: white;
   border: solid 1px #ccc;
-  /* opacity: 0; */
   padding: 5px;
+  display: flex;
+  flex-direction: row;
 }
 
 #colors-container {
@@ -37,17 +27,65 @@ body {
 #rgb-textboxes{
 	display: flex;
 	flex-direction: column;
-	margin-left: 700px;	
+	margin-left: 100px;	
 }
 
 #rgb-textboxes label {
-	color: white;
 	margin-left: 30px;
 }
 
+.little-color-picker{
+	max-height: 125px;
+	max-width: 425px;
+	overflow: hidden;
+}
 
-.rgb-value{
+.mode-hue{
+	max-width: 42px;
+	max-height: 460px;
+}
+
+.rgb-value,
+#value-luminosity{
 	width: 60px;
 	padding: 5px;
 	margin: 10px;
+}
+
+#luminosity{
+	margin: 15px;
+	height: auto;
+}
+
+.header {
+	background-color: green;
+	height: 50px;
+}
+
+
+/* Couleur des labels */
+#label-red{
+	color: red;
+}
+
+#label-green{
+	color: green;
+}
+
+#label-blue{
+	color: blue;
+}
+
+#label-luminosity{
+	color: white;
+}
+
+/* Partie colorPicker */
+.jqx-color-picker-panel,
+.jqx-disableselect.jqx-color-picker-bar,
+.jqx-disableselect.jqx-color-picker-map-hue{
+	visibility: hidden;
+}
+.jqx-disableselect.jqx-color-picker-bar-hue{
+	position: unset !important;
 }

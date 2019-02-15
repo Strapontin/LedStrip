@@ -3,33 +3,62 @@
 		<link rel="stylesheet" href='/static/css/led.css' />
 		<script src="/static/js/jquery-3.3.1.min.js"></script>
         <script src="/static/js/led.js"></script>    
+        <script src="/static/js/notify.js"></script>    
 		<link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
 		<script src="/static/jqwidgets/jqwidgets/jqxcore.js"></script>
 		<script src="/static/jqwidgets/jqwidgets/jqxcolorpicker.js"></script>
 	</head>
 	<body>
-		<div id="colors-container">
+	
+		<div class="header">
+			Header
+		</div>
+	
+	<!-- Container des actions de la bande -->
+		<div class="stripe-container">
+			<div id="colors-container">
 
-			<!-- <label for="color-input" id="color-label" style="background-color: red"></label> -->
-			<!-- <input type="checkbox" id="color-input" checked></input> -->
-
-		
-			<!-- <div id="color-picker"> -->
-			  <!-- <canvas id="color-block" height="500" width="500"></canvas> -->
-			  <!-- <canvas id="color-strip" height="500" width="50"></canvas> -->
-			<!-- </div> -->
-			<div id ="color-picker"></div>
-			
-			
-			<div id="rgb-textboxes">
-				<label>R</label>
-				<input type="text" class="rgb-value" id="value-red"></input>
+				<div id ="color-picker">
+					<div></div>
+					<input id="luminosity" type="range" value="255" max="255" min="0" step="1" orient="vertical">
+				</div>
 				
-				<label>G</label>
-				<input type="text" class="rgb-value" id="value-green"></input>
+				<div id="rgb-textboxes">
+					<table>
+						<tr>
+							<th><label id="label-red">R</label></th>
+							<th><input type="text" class="rgb-value" id="value-red"></input></th>
+						</tr>
+						
+						<tr>
+							<th><label id="label-green">G</label></th>
+							<th><input type="text" class="rgb-value" id="value-green"></input></th>
+						</tr>
+						
+						<tr>
+							<th><label id="label-blue">B</label></th>
+							<th><input type="text" class="rgb-value" id="value-blue"></input></th>
+						</tr>
+						
+						<tr>
+							<th><label id="label-luminosity">Luminosité</label></th>
+							<th><input type="text" id="value-luminosity"></input></th>
+						</tr>
+					</table>
+				</div>
 				
-				<label>B</label>
-				<input type="text" class="rgb-value" id="value-blue"></input>
 			</div>
+		</div>
+		
+		<!-- Container des actions de la lampe -->
+		<div class="bulb-container">
+		
+		</div>
+		
+		<!-- Container des actions sur la lampe et la bande -->
+		<div class="stripe-bulb-container">
+		
+		</div>
+		
 	</body>
 </html>
