@@ -1,6 +1,10 @@
 
 $(document).ready(function() {
 
+
+	var lastTimeDataSend = Date.now();
+
+
 	// $.notify("document.ready", "success");
 
 	$("#color-picker div").jqxColorPicker({
@@ -31,11 +35,17 @@ $(document).ready(function() {
 		$("#value-red").val(valueRed);
 		$("#value-green").val(valueGreen);
 		$("#value-blue").val(valueBlue);
+
+		SetRGB(valueRed, valueGreen, valueBlue);
 	});
 	
 	
 	// La valeur d'une couleur rgb a changé
 	function rgbValueChanged(event) {
+
+
+		console.log("rgbChanged");
+
 		var valueRed = $("#value-red").val();
 		var valueGreen = $("#value-green").val();
 		var valueBlue = $("#value-blue").val();
@@ -73,7 +83,33 @@ $(document).ready(function() {
 		rgbaColor = 'rgba(' + valueRed + ',' + valueGreen + ',' + valueBlue + ',1)';
 		
 		$("#color-picker").jqxColorPicker('setColor', {r: valueRed, g: valueGreen, b: valueBlue});
+
+
+		SetRGB(valueRed, valueGreen, valueBlue);
 	}
+
+
+	// Envoie le changement de couleur à l'Arduino
+	function SetRGB(red, green, blue) {
+	
+		console.log("set rgb");
+
+		
+		// On enregistre la date pour n'envoyer l'info qu'une fois par seconde
+		if (Math.floor(Date.now() - lastTimeDataSend) / 500 >= 1) {
+
+			lastTimeDataSend = Date.now();
+
+			var stringToSend = "RGB;" + red + ";" + green + ";" + blue + ";";
+
+			$.post('/rgbValue', {
+				rgbValue: stringToSend
+			});
+
+			console.log("post rgb");
+		}
+	}
+
 	
 	// Changement de la luminosité
 	$("#luminosity").on("input change", function() {
