@@ -1,8 +1,8 @@
 /* @import url(https://fonts.googleapis.com/css?family=Open+Sans); */
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #444044;
+	margin: 0;
+	padding: 0;
+	background-color: #444044;	/* gris foncé */
 }
 
 input[type=range][orient=vertical]
@@ -10,6 +10,37 @@ input[type=range][orient=vertical]
     writing-mode: bt-lr; /* IE */
     -webkit-appearance: slider-vertical; /* WebKit */
 }
+
+
+
+/* Header */
+/* Menu sélectionné */
+th {
+	width: 33%;
+	cursor: pointer;
+}
+
+.header th.selected {
+	color: #444044;		/* gris foncé */
+	background-color: #a0a0a0;	/* gris clair */
+}
+
+/* Menu non sélectionné */
+.header th:not(.selected) {
+	color: #a0a0a0;		/* gris clair */
+	background-color: #444044;	/* gris foncé */
+}
+
+.header {
+	border-bottom: 1px solid white;
+}
+
+.header table {
+	width: 100%;
+}
+
+
+
 
 #color-picker {
   position: absolute;
@@ -57,10 +88,8 @@ input[type=range][orient=vertical]
 	height: auto;
 }
 
-.header {
-	background-color: green;
-	height: 50px;
-}
+
+
 
 /* Partie actions */
 .actions-container {
@@ -75,6 +104,11 @@ input[type=range][orient=vertical]
 	top: 125px;;
 	align-self: center;
 }
+
+.actions-container > div:not(.selected){
+	display: none;
+}
+
 
 
 /* Couleur des labels */

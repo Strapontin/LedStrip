@@ -1,7 +1,10 @@
 
 $(document).ready(function() {
 
-
+	$("#luminosity").on("input change", luminosityChanged);
+	$(".switch.bande-power").on("click", clickOnOff);
+	$(".header th").on("click", clickHeaderMenu);
+	
 	var lastTimeDataSend = Date.now();
 
 
@@ -112,19 +115,31 @@ $(document).ready(function() {
 
 	
 	// Changement de la luminosité
-	$("#luminosity").on("input change", function() {
+	function luminosityChanged(event) {
 		
 		$("#value-luminosity").val($("#luminosity").get(0).value);
-	});
-	
-	function refreshTimerForLeds(){
-		
-		
-	}
+	};
 	
 	// Lors du clique sur le bouton pour éteindre la bande
-	$(".switch.bande-power").on("click", function() {
+	function clickOnOff() {
 		
 		console.log($(".switch.bande-power")[0].control.checked);
-	});
+	};
+	
+	// Lorsque l'on clique sur un bouton dans le header
+	function clickHeaderMenu(event){
+		
+		// $.notify("blabla");
+		let clickedItemClass = event.currentTarget.className.replace("selected", "");
+		console.log(clickedItemClass);
+		
+		// On remet tous les headers et affichages par défaut
+		$(".header th.selected, .actions-container > div").removeClass("selected");
+		
+		// On affiche le header sélectionné avec sa couleur
+		$(".header th." + clickedItemClass).addClass("selected");
+		
+		// On affiche le corps du header sélectionné
+		$(".actions-container ." + clickedItemClass).addClass("selected");
+	}
 });

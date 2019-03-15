@@ -1,10 +1,16 @@
+	
+# coding: utf-8
+
 from flask import Flask, render_template, redirect, request
 from threading import Timer
 import serial
 
-# On se connecte à l'Arduino
-ser = serial.Serial('/dev/ttyACM0', 9600)
-
+# On se connecte à l Arduino
+try:
+	ser = serial.Serial('/dev/ttyACM0', 9600)
+except:
+	print("impossible de se connecter au port série");
+	
 app = Flask(__name__)
 
 

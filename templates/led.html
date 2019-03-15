@@ -8,17 +8,39 @@
 		<link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
 		<script src="/static/jqwidgets/jqwidgets/jqxcore.js"></script>
 		<script src="/static/jqwidgets/jqwidgets/jqxcolorpicker.js"></script>
+		<link rel="stylesheet" href="/static/fontawesome-free-5.7.2-web/css/all.css" type="text/css" />
 	</head>
 	<body>
 	
+		<!-- Le header, avec les bouton de menu -->
 		<div class="header">
-			Header
+				
+			<table>
+				<tr>
+					<th class="bed selected" >
+						<span style="font-size: 48px;" >
+						  <i class="fas fa-bed"></i>
+						</span>
+					</th>
+					<th class="both" >
+						<span style="font-size: 48px;" >
+						  <i class="fas fa-arrows-alt-h "></i>
+						</span>
+					</th>
+					<th class="bulb" >
+						<span style="font-size: 48px;" >
+						  <i class="fas fa-lightbulb"></i>
+						</span>
+					</th>
+				</tr>
+			</table>
+			
 		</div>
 	
 		<div class="actions-container">
 		
 			<!-- Container des actions de la bande -->
-			<div class="stripe-container">
+			<div class="bed selected">
 				<div id="colors-container">
 
 					<!-- Le colorPicker -->
@@ -62,12 +84,12 @@
 			</div>
 			
 			<!-- Container des actions de la lampe -->
-			<div class="bulb-container">
+			<div class="bulb">
 			
 			</div>
 			
 			<!-- Container des actions sur la lampe et la bande -->
-			<div class="stripe-bulb-container">
+			<div class="both">
 			
 			</div>
 		</div>
