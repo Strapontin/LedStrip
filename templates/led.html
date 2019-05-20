@@ -12,87 +12,89 @@
 	</head>
 	<body>
 	
-		<!-- Le header, avec les bouton de menu -->
-		<div class="header">
+		<page>
+			<!-- Le header, avec les bouton de menu -->
+			<div class="header">
+					
+				<table>
+					<tr>
+						<th class="bed selected" >
+							<span style="font-size: 48px;" >
+								<i class="fas fa-bed"></i>
+							</span>
+						</th>
+						<th class="both" >
+							<span style="font-size: 48px;" >
+								<i class="fas fa-arrows-alt-h "></i>
+							</span>
+						</th>
+						<th class="bulb" >
+							<span style="font-size: 48px;" >
+								<i class="fas fa-lightbulb"></i>
+							</span>
+						</th>
+					</tr>
+				</table>
 				
-			<table>
-				<tr>
-					<th class="bed selected" >
-						<span style="font-size: 48px;" >
-						  <i class="fas fa-bed"></i>
-						</span>
-					</th>
-					<th class="both" >
-						<span style="font-size: 48px;" >
-						  <i class="fas fa-arrows-alt-h "></i>
-						</span>
-					</th>
-					<th class="bulb" >
-						<span style="font-size: 48px;" >
-						  <i class="fas fa-lightbulb"></i>
-						</span>
-					</th>
-				</tr>
-			</table>
-			
-		</div>
-	
-		<div class="actions-container">
+			</div>
 		
-			<!-- Container des actions de la bande -->
-			<div class="bed selected">
-				<div id="colors-container">
+			<div class="actions-container">
+			
+				<!-- Container des actions de la bande -->
+				<div class="bed selected">
+					<div id="colors-container">
 
-					<!-- Le colorPicker -->
-					<div id ="color-picker">
-						<div></div>
-						<input id="luminosity" type="range" value="255" max="255" min="0" step="1" orient="vertical">
-					</div>
-					
-					
-					<div id="rgb-textboxes">
-						<table>
-							<tr>
-								<th><label id="label-red">R</label></th>
-								<th><input type="text" class="rgb-value" id="value-red"></input></th>
-							</tr>
-							
-							<tr>
-								<th><label id="label-green">G</label></th>
-								<th><input type="text" class="rgb-value" id="value-green"></input></th>
-							</tr>
-							
-							<tr>
-								<th><label id="label-blue">B</label></th>
-								<th><input type="text" class="rgb-value" id="value-blue"></input></th>
-							</tr>
-							
-							<tr>
-								<th><label id="label-luminosity">Luminosité</label></th>
-								<th><input type="text" id="value-luminosity"></input></th>
-							</tr>
-						</table>
+						<!-- Le colorPicker -->
+						<div id ="color-picker">
+							<div></div>
+							<input id="luminosity" type="range" value="255" max="255" min="0" step="1" orient="vertical">
+						</div>
 						
-						<!-- Bouton pour allumer/éteindre la bande -->
-						<label class="switch bande-power">
-						  <input type="checkbox" checked>
-						  <span class="slider round"></span>
-						</label>
+						
+						<div id="rgb-textboxes">
+							<table>
+								<tr>
+									<th><label id="label-red">R</label></th>
+									<th><input type="text" class="rgb-value" id="value-red"></input></th>
+								</tr>
+								
+								<tr>
+									<th><label id="label-green">G</label></th>
+									<th><input type="text" class="rgb-value" id="value-green"></input></th>
+								</tr>
+								
+								<tr>
+									<th><label id="label-blue">B</label></th>
+									<th><input type="text" class="rgb-value" id="value-blue"></input></th>
+								</tr>
+								
+								<tr>
+									<th><label id="label-luminosity">Luminosité</label></th>
+									<th><input type="text" id="value-luminosity"></input></th>
+								</tr>
+							</table>
+							
+							<!-- Bouton pour allumer/éteindre la bande -->
+							<label class="switch bande-power">
+								<input type="checkbox" checked>
+								<span class="slider round"></span>
+							</label>
+						</div>
+						
 					</div>
-					
+				</div>
+				
+				<!-- Container des actions de la lampe -->
+				<div class="bulb">
+				
+				</div>
+				
+				<!-- Container des actions sur la lampe et la bande -->
+				<div class="both">
+				
 				</div>
 			</div>
-			
-			<!-- Container des actions de la lampe -->
-			<div class="bulb">
-			
-			</div>
-			
-			<!-- Container des actions sur la lampe et la bande -->
-			<div class="both">
-			
-			</div>
-		</div>
 		
+		</page>
 	</body>
 </html>

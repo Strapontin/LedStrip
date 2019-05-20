@@ -3,14 +3,26 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: #444044;	/* gris foncé */
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	position: fixed;
 }
 
 input[type=range][orient=vertical]
 {
     writing-mode: bt-lr; /* IE */
-    -webkit-appearance: slider-vertical; /* WebKit */
+		-webkit-appearance: slider-vertical; /* WebKit */
+		width: 25px;
 }
 
+
+page {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+}
 
 
 /* Header */
@@ -33,32 +45,36 @@ th {
 
 .header {
 	border-bottom: 1px solid white;
+	height: 15%;
 }
 
 .header table {
 	width: 100%;
+	height: 98%;
 }
 
 
 
 
 #color-picker {
-  position: absolute;
   background-color: white;
   border: solid 1px #ccc;
   padding: 5px;
   display: flex;
-  flex-direction: row;
+	flex-direction: row;
 }
 
 #colors-container {
 	margin: 10px;
+	/* position: absolute; */
+	display: flex;
+	height: calc(100% - 5px);
 }
 
 #rgb-textboxes{
 	display: flex;
 	flex-direction: column;
-	margin-left: 100px;	
+	position: relative;
 }
 
 #rgb-textboxes label {
@@ -72,8 +88,8 @@ th {
 }
 
 .mode-hue{
-	max-width: 42px;
-	max-height: 460px;
+	/*max-width: 42px;
+	max-height: 460px; */
 }
 
 .rgb-value,
@@ -89,15 +105,17 @@ th {
 }
 
 
+div.bed.selected{
+	height: 98%;
+}
 
 
 /* Partie actions */
 .actions-container {
-	margin-left: 1%;
-	margin-top: 1%;
-	border: 1px solid grey;
-	height: 495px;
-	width: 315px;
+	margin: 1%;
+	border: 3px solid grey;
+	height: 80%;
+	width: 100%;
 }
 
 .bande-power {
@@ -136,4 +154,22 @@ th {
 }
 .jqx-disableselect.jqx-color-picker-bar-hue{
 	position: unset !important;
+}
+.jqx-widget.jqx-reset.jqx-color-picker.mode-hue {
+	height: 100% !important;
+	width: 50px !important;
+}
+.jqx-disableselect.jqx-color-picker-map-hue.mode-hue,
+.jqx-disableselect.jqx-color-picker-map-hue.mode-hue img,
+.jqx-disableselect.jqx-color-picker-bar-hue.mode-hue,
+.jqx-disableselect.jqx-color-picker-bar-hue.mode-hue .mode-hue,
+.jqx-disableselect.jqx-color-picker-bar-hue.mode-hue .mode-hue img {
+	height: 100% !important;
+	width: 100% !important;
+}
+
+/* Garder la taille normale */
+.mode-hue,
+.mode-hue img {
+	/* width: 100% !important; */
 }
