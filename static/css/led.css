@@ -56,7 +56,7 @@ th {
 
 
 
-#color-picker {
+.color-picker {
   background-color: white;
   border: solid 1px #ccc;
   padding: 5px;
@@ -64,20 +64,21 @@ th {
 	flex-direction: row;
 }
 
-#colors-container {
+.colors-container {
 	margin: 10px;
 	/* position: absolute; */
 	display: flex;
 	height: calc(100% - 5px);
+	justify-content: space-around;
 }
 
-#rgb-textboxes{
+.rgb-textboxes{
 	display: flex;
 	flex-direction: column;
 	position: relative;
 }
 
-#rgb-textboxes label {
+.rgb-textboxes label {
 	margin-left: 30px;
 }
 
@@ -93,19 +94,23 @@ th {
 }
 
 .rgb-value,
-#value-luminosity{
+.value-luminosity{
 	width: 60px;
 	padding: 5px;
 	margin: 10px;
+	font-size: 3em;
+	width: 3em;
 }
 
-#luminosity{
+.luminosity{
 	margin: 15px;
 	height: auto;
 }
 
 
-div.bed.selected{
+div.bed.selected,
+div.bulb.selected,
+div.both.selected {
 	height: 98%;
 }
 
@@ -114,8 +119,8 @@ div.bed.selected{
 .actions-container {
 	margin: 1%;
 	border: 3px solid grey;
-	height: 80%;
-	width: 100%;
+	height: 84%;
+	width: 97%;
 }
 
 .bande-power {
@@ -130,20 +135,24 @@ div.bed.selected{
 
 
 /* Couleur des labels */
-#label-red{
+.label.red{
 	color: red;
+	font-size: 3em;
 }
 
-#label-green{
+.label.green{
 	color: green;
+	font-size: 3em;
 }
 
-#label-blue{
+.label.blue{
 	color: blue;
+	font-size: 3em;
 }
 
-#label-luminosity{
+.label.luminosity{
 	color: white;
+	font-size: 3em;
 }
 
 /* Partie colorPicker */
@@ -159,6 +168,8 @@ div.bed.selected{
 	height: 100% !important;
 	width: 50px !important;
 }
+
+.jqx-disableselect.jqx-color-picker-bar-hue,
 .jqx-disableselect.jqx-color-picker-map-hue.mode-hue,
 .jqx-disableselect.jqx-color-picker-map-hue.mode-hue img,
 .jqx-disableselect.jqx-color-picker-bar-hue.mode-hue,

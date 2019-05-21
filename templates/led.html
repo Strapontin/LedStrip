@@ -42,35 +42,35 @@
 			
 				<!-- Container des actions de la bande -->
 				<div class="bed selected">
-					<div id="colors-container">
+					<div class="colors-container">
 
 						<!-- Le colorPicker -->
-						<div id ="color-picker">
+						<div class="color-picker">
 							<div></div>
-							<input id="luminosity" type="range" value="255" max="255" min="0" step="1" orient="vertical">
+							<input class="luminosity" type="range" value="255" max="255" min="0" step="1" orient="vertical">
 						</div>
 						
 						
-						<div id="rgb-textboxes">
+						<div class="rgb-textboxes">
 							<table>
 								<tr>
-									<th><label id="label-red">R</label></th>
-									<th><input type="text" class="rgb-value" id="value-red"></input></th>
+									<th><label class="label red">R</label></th>
+									<th><input type="text" class="rgb-value red"></input></th>
 								</tr>
 								
 								<tr>
-									<th><label id="label-green">G</label></th>
-									<th><input type="text" class="rgb-value" id="value-green"></input></th>
+									<th><label class="label green">G</label></th>
+									<th><input type="text" class="rgb-value green"></input></th>
 								</tr>
 								
 								<tr>
-									<th><label id="label-blue">B</label></th>
-									<th><input type="text" class="rgb-value" id="value-blue"></input></th>
+									<th><label class="label blue">B</label></th>
+									<th><input type="text" class="rgb-value blue"></input></th>
 								</tr>
 								
 								<tr>
-									<th><label id="label-luminosity">Luminosité</label></th>
-									<th><input type="text" id="value-luminosity"></input></th>
+									<th><label class="label luminosity">Luminosité</label></th>
+									<th><input type="text" class="value-luminosity"></input></th>
 								</tr>
 							</table>
 							
@@ -85,13 +85,91 @@
 				</div>
 				
 				<!-- Container des actions de la lampe -->
-				<div class="bulb">
-				
+				<div class="bulb">				
+					<div class="colors-container">
+
+						<!-- Le colorPicker -->
+						<div class="color-picker">
+							<div></div>
+							<input class="luminosity" type="range" value="255" max="255" min="0" step="1" orient="vertical">
+						</div>
+						
+						
+						<div class="rgb-textboxes">
+							<table>
+								<tr>
+									<th><label class="label red">R</label></th>
+									<th><input type="text" class="rgb-value red"></input></th>
+								</tr>
+								
+								<tr>
+									<th><label class="label green">G</label></th>
+									<th><input type="text" class="rgb-value green"></input></th>
+								</tr>
+								
+								<tr>
+									<th><label class="label blue">B</label></th>
+									<th><input type="text" class="rgb-value blue"></input></th>
+								</tr>
+								
+								<tr>
+									<th><label class="label luminosity">Luminosité</label></th>
+									<th><input type="text" class="value-luminosity"></input></th>
+								</tr>
+							</table>
+							
+							<!-- Bouton pour allumer/éteindre la bande -->
+							<label class="switch bande-power">
+								<input type="checkbox" checked>
+								<span class="slider round"></span>
+							</label>
+						</div>
+						
+					</div>
 				</div>
 				
 				<!-- Container des actions sur la lampe et la bande -->
-				<div class="both">
-				
+				<div class="both">			
+					<div class="colors-container">
+
+						<!-- Le colorPicker -->
+						<div class="color-picker">
+							<div></div>
+							<input class="luminosity" type="range" value="255" max="255" min="0" step="1" orient="vertical">
+						</div>
+						
+						
+						<div class="rgb-textboxes">
+							<table>
+								<tr>
+									<th><label class="label red">R</label></th>
+									<th><input type="text" class="rgb-value red"></input></th>
+								</tr>
+								
+								<tr>
+									<th><label class="label green">G</label></th>
+									<th><input type="text" class="rgb-value green"></input></th>
+								</tr>
+								
+								<tr>
+									<th><label class="label blue">B</label></th>
+									<th><input type="text" class="rgb-value blue"></input></th>
+								</tr>
+								
+								<tr>
+									<th><label class="label luminosity">Luminosité</label></th>
+									<th><input type="text" class="value-luminosity"></input></th>
+								</tr>
+							</table>
+							
+							<!-- Bouton pour allumer/éteindre la bande -->
+							<label class="switch bande-power">
+								<input type="checkbox" checked>
+								<span class="slider round"></span>
+							</label>
+						</div>
+						
+					</div>
 				</div>
 			</div>
 		
