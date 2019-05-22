@@ -1,13 +1,14 @@
 
-var timestampButton = 0;
-
 $(document).ready(function () {
 
 	$(".luminosity").off("input change").on("input change", luminosityChanged);
 	$(".switch.bande-power").off("click").on("click", clickOnOff);
 	$(".header th").off("click").on("click", clickHeaderMenu);
 
+	var timestampButton = 0;
 	var lastTimeDataSend = Date.now();
+	var luminosityTimeout;
+	var colorTimeout;
 
 
 	$('.bed.selected .color-picker').bind('colorchange', function (event) {
@@ -31,25 +32,39 @@ $(document).ready(function () {
 
 
 	// Change la couleur après un click
-	$(".color-picker").bind('colorchange', function (event) {
+	$(".color-picker").bind('colorchange', pickedColor);
 
-		var currentPage = $(event.currentTarget).parents('.colors-container');
 
-		var color = event.args.color;
+	function pickedColor(event){
 
-		var valueRed = color.r;
-		var valueGreen = color.g;
-		var valueBlue = color.b;
+		// On enregistre la date pour n'envoyer l'info qu'une fois par seconde
+		if (Math.floor(Date.now() - lastTimeDataSend) / 250 >= 1) {
 
-		rgbaColor = 'rgba(' + valueRed + ',' + valueGreen + ',' + valueBlue + ',1)';
+			lastTimeDataSend = Date.now();
 
-		// Change le RGB dans les textbox
-		currentPage.find(".rgb-value.red").val(valueRed);
-		currentPage.find(".rgb-value.green").val(valueGreen);
-		currentPage.find(".rgb-value.blue").val(valueBlue);
+			var currentPage = $(event.currentTarget).parents('.colors-container');
 
-		SetRGB(valueRed, valueGreen, valueBlue);
-	});
+			var color = event.args.color;
+
+			var valueRed = color.r;
+			var valueGreen = color.g;
+			var valueBlue = color.b;
+
+			rgbaColor = 'rgba(' + valueRed + ',' + valueGreen + ',' + valueBlue + ',1)';
+
+			// Change le RGB dans les textbox
+			currentPage.find(".rgb-value.red").val(valueRed);
+			currentPage.find(".rgb-value.green").val(valueGreen);
+			currentPage.find(".rgb-value.blue").val(valueBlue);
+
+			SetRGB(valueRed, valueGreen, valueBlue);
+		}
+		else {
+
+			clearTimeout(colorTimeout);
+			colorTimeout = setTimeout(function () { pickedColor(event); }, 10);
+		}
+	};
 
 
 	// La valeur d'une couleur rgb a changé
@@ -101,27 +116,35 @@ $(document).ready(function () {
 	// Envoie le changement de couleur à l'Arduino
 	function SetRGB(red, green, blue) {
 
-		// On enregistre la date pour n'envoyer l'info qu'une fois par seconde
-		if (Math.floor(Date.now() - lastTimeDataSend) / 500 >= 1) {
+		var stringToSend = "RGB;" + red + ";" + green + ";" + blue + ";";
 
-			lastTimeDataSend = Date.now();
-
-			var stringToSend = "RGB;" + red + ";" + green + ";" + blue + ";";
-
-			$.post('/rgbValue', {
-				rgbValue: stringToSend
-			});
-		}
+		$.post('/rgbValue', {
+			rgbValue: stringToSend
+		});
 	}
 
 
 	// Changement de la luminosité
 	function luminosityChanged(event) {
 
-		var currentPage = $(event.currentTarget).parents('.colors-container');
-		var luminosity = currentPage.find(".luminosity").val();
+		if (Math.floor(Date.now() - lastTimeDataSend) / 250 >= 1) {
 
-		currentPage.find(".value-luminosity").val(luminosity);
+			lastTimeDataSend = Date.now();
+
+			var currentPage = $(event.currentTarget).parents('.colors-container');
+			var luminosity = currentPage.find(".luminosity").val();
+
+			currentPage.find(".value-luminosity").val(luminosity);
+
+			$.post('/setLuminosity', {
+				setLuminosity: luminosity
+			});
+		}
+		else {
+
+			clearTimeout(luminosityTimeout);
+			luminosityTimeout = setTimeout(function () { luminosityChanged(event); }, 10);
+		}
 	};
 
 

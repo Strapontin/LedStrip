@@ -32,6 +32,17 @@ def rgbValue():
 	print(data)
 	return data
 
+@app.route('/setLuminosity', methods=['POST'])
+def setLuminosity():
+	data = '<setLuminosity:' + request.form['setLuminosity'] + '>'
+	try:
+		ser.write(data.encode())
+	except:
+		l = 1
+	# print(data)
+	return data
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
