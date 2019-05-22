@@ -79,7 +79,7 @@ th {
 }
 
 .rgb-textboxes label {
-	margin-left: 30px;
+	/* margin-left: 30px; */
 }
 
 .little-color-picker{
@@ -103,7 +103,7 @@ th {
 }
 
 .luminosity{
-	margin: 15px;
+	margin: 20px !important;
 	height: auto;
 }
 
@@ -124,8 +124,14 @@ div.both.selected {
 }
 
 .bande-power {
-	top: 125px;;
-	align-self: center;
+	/* top: 125px;
+	align-self: center; */
+}
+
+.onoff {
+	justify-content: center;
+	display: flex;
+	margin-top: 10%;
 }
 
 .actions-container > div:not(.selected){
