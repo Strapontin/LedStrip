@@ -26,7 +26,7 @@ def led():
 
 @app.route('/rgbValue', methods=['POST'])
 def rgbValue():
-	data = '<' + request.form['rgbValue'] + ',>'
+	data = '<' + request.form['rgbValue'] + '>'
 	ser.write(data.encode())
 	#ser.write("<This is a very long string, 124, 19.89> ".encode())
 	print(data)

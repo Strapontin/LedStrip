@@ -41,7 +41,7 @@ void loop()
     // On lit les infos reçues
     while (Serial.available()) {
       
-      Serial.println(Serial.readString());
+//      Serial.println(Serial.readString());
       
       byteReceived = Serial.read();
       fullMessage += (char)byteReceived;
