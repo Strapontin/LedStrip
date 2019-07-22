@@ -38,7 +38,7 @@ $(document).ready(function () {
 	function pickedColor(event){
 
 		// On enregistre la date pour n'envoyer l'info qu'une fois par seconde
-		if (Math.floor(Date.now() - lastTimeDataSend) / 250 >= 1) {
+		if (canSendData()) {
 
 			lastTimeDataSend = Date.now();
 
@@ -127,7 +127,7 @@ $(document).ready(function () {
 	// Changement de la luminosité
 	function luminosityChanged(event) {
 
-		if (Math.floor(Date.now() - lastTimeDataSend) / 250 >= 1) {
+		if (canSendData()) {
 
 			lastTimeDataSend = Date.now();
 
@@ -176,5 +176,10 @@ $(document).ready(function () {
 
 		// On affiche le corps du header sélectionné
 		$(".actions-container ." + clickedItemClass).addClass("selected");
+	}
+	
+	function canSendData() {
+
+		return Math.floor(Date.now() - lastTimeDataSend) / 150 >= 1;
 	}
 });
