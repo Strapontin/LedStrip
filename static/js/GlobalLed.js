@@ -1,14 +1,13 @@
 
+var timestampButton = 0;
+var lastTimeDataSend = Date.now();
+var luminosityTimeout;
+var colorTimeout;
+	
+	
 $(document).ready(function () {
 
-	$(".luminosity").off("input change").on("input change", luminosityChanged);
-	$(".switch.bande-power").off("click").on("click", clickOnOff);
-	$(".header th").off("click").on("click", clickHeaderMenu);
-
-	var timestampButton = 0;
-	var lastTimeDataSend = Date.now();
-	var luminosityTimeout;
-	var colorTimeout;
+	initBasicEvents();
 
 
 	$('.bed.selected .color-picker').bind('colorchange', function (event) {
@@ -183,3 +182,19 @@ $(document).ready(function () {
 		return Math.floor(Date.now() - lastTimeDataSend) / 150 >= 1;
 	}
 });
+
+function initBasicEvents(){
+
+	$(".bed .luminosity").off("input change").on("input change", luminosityChanged); // TODO changer les fonctions et les rangers dans leurs fichier respectif
+	$(".bulb .luminosity").off("input change").on("input change", luminosityChanged);
+	$(".both .luminosity").off("input change").on("input change", luminosityChanged);
+	$(".bed .switch.bande-power").off("click").on("click", clickOnOff);
+	$(".bulb .switch.bande-power").off("click").on("click", clickOnOff);
+	$(".both .switch.bande-power").off("click").on("click", clickOnOff);
+	$(".bed .header th").off("click").on("click", clickHeaderMenu);	
+	$(".bulb .header th").off("click").on("click", clickHeaderMenu);	
+	$(".both .header th").off("click").on("click", clickHeaderMenu);	
+}
+
+
+
